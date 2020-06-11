@@ -7,7 +7,7 @@ no_of_masses = 4
 dim = 2
 
 # time is in seconds
-time = np.arange(0, 3.154e+7, 86400. / 4)
+time = np.arange(0, 3.154e+7 * 4, 86400. / 4)
 
 # positions
 r = np.zeros((len(time), no_of_masses, dim))
@@ -69,8 +69,9 @@ ax2d = fig.add_subplot(2, 1, 2)
 
 relative_to_i = 3
 for i in range(no_of_masses):
-    ax3d.scatter(r[:, i, 0] - r[:, relative_to_i, 0], r[:, i, 1] - r[:, relative_to_i, 1], time, c=time)
     ax2d.scatter(r[:, i, 0] - r[:, relative_to_i, 0], r[:, i, 1] - r[:, relative_to_i, 1], c=time)
+    ax3d.scatter(r[:, i, 0] - r[:, relative_to_i, 0], r[:, i, 1] - r[:, relative_to_i, 1], time, c=time)
+
 
 plt.show()
-# plt.savefig('plot1.pdf')
+# plt.savefig('plot1.png')
